@@ -23,13 +23,13 @@ const fs = {
 };
 
 process.on("unhandledRejection", (reason) => {
-    console.error(`Unhandled promise rejection: ${reason}`);
+//     console.error(`Unhandled promise rejection: ${reason}`);
     process.exit(1);
 });
 
 // Don't let us hang the build. If this process takes more than 10 minutes, we're outta here
 setTimeout(() => {
-    console.error("Bail out! Tests took more than 10 minutes to run. Aborting.");
+//     console.error("Bail out! Tests took more than 10 minutes to run. Aborting.");
     process.exit(1);
 }, 1000 * 60 * 10);
 
