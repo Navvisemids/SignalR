@@ -75,7 +75,7 @@ export async function sendMessage(logger: ILogger, transportName: string, httpCl
         }
     }
 
-    logger.log(LogLevel.Trace, `(${transportName} transport) sending data. ${getDataDetail(content, logMessageContent)}.`);
+    // logger.log(LogLevel.Trace, `(${transportName} transport) sending data. ${getDataDetail(content, logMessageContent)}.`);
 
     const responseType = isArrayBuffer(content) ? "arraybuffer" : "text";
     const response = await httpClient.post(url, {
@@ -84,7 +84,7 @@ export async function sendMessage(logger: ILogger, transportName: string, httpCl
         responseType,
     });
 
-    logger.log(LogLevel.Trace, `(${transportName} transport) request complete. Response status: ${response.statusCode}.`);
+    // logger.log(LogLevel.Trace, `(${transportName} transport) request complete. Response status: ${response.statusCode}.`);
 }
 
 /** @private */
@@ -177,17 +177,17 @@ export class ConsoleLogger implements ILogger {
             switch (logLevel) {
                 case LogLevel.Critical:
                 case LogLevel.Error:
-                    console.error(`[${new Date().toISOString()}] ${LogLevel[logLevel]}: ${message}`);
+                    // console.error(`[${new Date().toISOString()}] ${LogLevel[logLevel]}: ${message}`);
                     break;
                 case LogLevel.Warning:
-                    console.warn(`[${new Date().toISOString()}] ${LogLevel[logLevel]}: ${message}`);
+                    // console.warn(`[${new Date().toISOString()}] ${LogLevel[logLevel]}: ${message}`);
                     break;
                 case LogLevel.Information:
-                    console.info(`[${new Date().toISOString()}] ${LogLevel[logLevel]}: ${message}`);
+                    // console.info(`[${new Date().toISOString()}] ${LogLevel[logLevel]}: ${message}`);
                     break;
                 default:
                     // console.debug only goes to attached debuggers in Node, so we use console.log for Trace and Debug
-                    console.log(`[${new Date().toISOString()}] ${LogLevel[logLevel]}: ${message}`);
+                    // console.log(`[${new Date().toISOString()}] ${LogLevel[logLevel]}: ${message}`);
                     break;
             }
         }
