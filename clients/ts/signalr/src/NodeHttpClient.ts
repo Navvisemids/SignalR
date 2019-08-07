@@ -49,10 +49,10 @@ export class NodeHttpClient extends HttpClient {
 
                 if (error) {
                     if (error.code === "ETIMEDOUT") {
-                        this.logger.log(LogLevel.Warning, `Timeout from HTTP request.`);
+//                         this.logger.log(LogLevel.Warning, `Timeout from HTTP request.`);
                         reject(new TimeoutError());
                     }
-                    this.logger.log(LogLevel.Warning, `Error from HTTP request. ${error}`);
+//                     this.logger.log(LogLevel.Warning, `Error from HTTP request. ${error}`);
                     reject(error);
                     return;
                 }
