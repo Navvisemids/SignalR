@@ -179,7 +179,7 @@ function runJest(httpsUrl: string, httpUrl: string) {
             (error: any, stdout, stderr) => {
                 console.log("Finished Node tests.");
                 if (error) {
-                    console.log(error.message);
+//                     console.log(error.message);
                     return resolve(error.code);
                 }
                 return resolve(0);
